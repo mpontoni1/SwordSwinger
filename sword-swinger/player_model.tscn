@@ -1,0 +1,59 @@
+[gd_scene format=3 uid="uid://vmbksudsdio8"]
+
+[ext_resource type="PackedScene" uid="uid://rwmiyeji4dc1" path="res://Viking_Male.fbx" id="1_qge56"]
+[ext_resource type="Script" uid="uid://dpsycrysqlavh" path="res://player_model.gd" id="1_sc24m"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_sc24m"]
+
+[node name="PlayerModel" type="CharacterBody3D" unique_id=1597763153]
+script = ExtResource("1_sc24m")
+
+[node name="Viking_Male" parent="." unique_id=299443933 instance=ExtResource("1_qge56")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+
+[node name="Skeleton3D" parent="Viking_Male/CharacterArmature" parent_id_path=PackedInt32Array(299443933, 622310566) index="0" unique_id=191827162]
+bones/1/position = Vector3(0.0026542463, 0.00019088929, -0.0031416107)
+bones/1/rotation = Quaternion(5.2050214e-06, 0.7029519, 0.71123743, 5.339949e-06)
+bones/3/position = Vector3(2.1529915e-05, 0.008228986, 0.0014252902)
+bones/3/rotation = Quaternion(-3.552703e-15, 1.1920932e-07, -1.6940663e-21, 1)
+bones/4/position = Vector3(-1.47993405e-05, -0.0006677492, -0.00046242267)
+bones/4/rotation = Quaternion(-0.05076883, -2.673302e-07, -2.2751667e-08, 0.99871045)
+bones/5/rotation = Quaternion(0.25787315, 8.3593466e-07, 6.549896e-07, 0.9661788)
+bones/6/rotation = Quaternion(-0.0067768707, -0.12312759, 0.056628115, 0.9907508)
+bones/7/rotation = Quaternion(-0.03338168, 6.852825e-07, -9.201938e-09, 0.9994427)
+bones/8/rotation = Quaternion(-0.075696796, -8.9735295e-05, -1.6096012e-05, 0.99713093)
+bones/10/position = Vector3(0.0012610285, 0.0014133906, 0.00013457643)
+bones/11/rotation = Quaternion(-0.5400701, -0.48509648, -0.594395, 0.3459774)
+bones/12/rotation = Quaternion(0.06492945, -0.10846831, -0.49471962, 0.859809)
+bones/13/rotation = Quaternion(0.012374859, 0.039448667, -0.00701823, 0.99912035)
+bones/15/position = Vector3(-0.0012482608, 0.0014133906, 0.00013457802)
+bones/16/rotation = Quaternion(-0.5812917, 0.4446419, 0.51562375, 0.44556224)
+bones/17/rotation = Quaternion(-0.29183784, 0.03866491, 0.11620272, 0.9485951)
+bones/18/rotation = Quaternion(0.01137763, -0.15603992, 0.009574929, 0.9876389)
+bones/20/position = Vector3(0.0025302905, -0.00016702127, -0.00055923744)
+bones/20/rotation = Quaternion(0.99990284, 0.011248394, -0.0015062895, 0.008102164)
+bones/20/scale = Vector3(0.99999833, 0.9999936, 0.99995416)
+bones/21/rotation = Quaternion(0.43084574, 0.0045127566, 0.008732835, 0.9023722)
+bones/21/scale = Vector3(1.000001, 1.0000237, 1.0000039)
+bones/23/position = Vector3(-0.0025471216, -0.00016702127, -0.00055924105)
+bones/23/rotation = Quaternion(0.90795267, -0.008725007, -0.00017801742, 0.41898185)
+bones/23/scale = Vector3(0.99999815, 0.99998754, 0.9999595)
+bones/24/rotation = Quaternion(0.53610736, -0.005528973, -0.008127624, 0.8440926)
+bones/24/scale = Vector3(1.0000007, 1.0000287, 1.0000011)
+bones/26/rotation = Quaternion(-3.552703e-15, 1.1920937e-07, 2.524355e-29, 1)
+bones/28/position = Vector3(-0.0026280174, 5.0026196e-05, 0.0028725993)
+bones/28/rotation = Quaternion(-5.60106e-06, 0.7029519, 0.71123743, -4.948525e-06)
+bones/30/rotation = Quaternion(-3.5527234e-15, -5.960465e-07, 1.6940652e-21, 1)
+
+[node name="Body2" parent="Viking_Male/CharacterArmature/Skeleton3D" index="0" unique_id=55960435]
+transform = Transform3D(1.0000002, -1.7484558e-07, -2.0843216e-14, 1.7484558e-07, 1.0000002, -2.842171e-14, 2.084322e-14, 2.842171e-14, 1.0000002, 0, -7.116292e-12, -8.483282e-19)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=634912747]
+transform = Transform3D(1, 0, 1.7484555e-07, 0, 1, 0, -1.7484555e-07, 0, 1, 0.0040700436, 0.8675569, -3.5581454e-10)
+shape = SubResource("CapsuleShape3D_sc24m")
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=309728788]
+transform = Transform3D(1, -4.371139e-08, 1.6313311e-07, 0, 0.9659259, 0.25881907, -1.6888782e-07, -0.25881907, 0.9659258, 0, 5.0912075, 8.050073)
+fov = 48.5
+
+[editable path="Viking_Male"]
