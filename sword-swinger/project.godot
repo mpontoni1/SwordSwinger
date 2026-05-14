@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="SwordSwinger"
-run/main_scene="uid://dgr2l4jhmoudw"
+run/main_scene="uid://dpgidrskpnltc"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
 

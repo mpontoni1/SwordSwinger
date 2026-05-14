@@ -3,6 +3,12 @@
 [ext_resource type="PackedScene" uid="uid://rwmiyeji4dc1" path="res://Viking_Male.fbx" id="1_qge56"]
 [ext_resource type="Script" uid="uid://dpsycrysqlavh" path="res://player_model.gd" id="1_sc24m"]
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sc24m"]
+albedo_color = Color(1, 0.6719423, 0.51035935, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yqb6h"]
+albedo_color = Color(0.032967977, 0.032967992, 0.03296798, 1)
+
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_sc24m"]
 
 [node name="PlayerModel" type="CharacterBody3D" unique_id=1597763153]
@@ -47,13 +53,15 @@ bones/30/rotation = Quaternion(-3.5527234e-15, -5.960465e-07, 1.6940652e-21, 1)
 
 [node name="Body2" parent="Viking_Male/CharacterArmature/Skeleton3D" index="0" unique_id=55960435]
 transform = Transform3D(1.0000002, -1.7484558e-07, -2.0843216e-14, 1.7484558e-07, 1.0000002, -2.842171e-14, 2.084322e-14, 2.842171e-14, 1.0000002, 0, -7.116292e-12, -8.483282e-19)
+surface_material_override/0 = SubResource("StandardMaterial3D_sc24m")
+surface_material_override/5 = SubResource("StandardMaterial3D_yqb6h")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=634912747]
-transform = Transform3D(1, 0, 1.7484555e-07, 0, 1, 0, -1.7484555e-07, 0, 1, 0.0040700436, 0.8675569, -3.5581454e-10)
+transform = Transform3D(0.8, 0, 1.3987645e-07, 0, 0.8, 0, -1.3987645e-07, 0, 0.8, 0.0040700436, 0.7625288, 0.03621459)
 shape = SubResource("CapsuleShape3D_sc24m")
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=309728788]
-transform = Transform3D(1, -4.371139e-08, 1.6313311e-07, 0, 0.9659259, 0.25881907, -1.6888782e-07, -0.25881907, 0.9659258, 0, 5.0912075, 8.050073)
+transform = Transform3D(1, -4.3711367e-08, 1.6313308e-07, -7.264687e-08, 0.76066667, 0.64914274, -1.524648e-07, -0.64914274, 0.76066667, 0, 10.783691, 10.124307)
 fov = 48.5
 
 [editable path="Viking_Male"]

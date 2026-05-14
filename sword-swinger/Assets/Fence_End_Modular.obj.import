@@ -1,0 +1,25 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://df0d7gjad0iw"
+path="res://.godot/imported/Fence_End_Modular.obj-33e13e0181a4e73996ce7c4746a0e3cb.mesh"
+
+[deps]
+
+files=["res://.godot/imported/Fence_End_Modular.obj-33e13e0181a4e73996ce7c4746a0e3cb.mesh"]
+
+source_file="res://Assets/Fence_End_Modular.obj"
+dest_files=["res://.godot/imported/Fence_End_Modular.obj-33e13e0181a4e73996ce7c4746a0e3cb.mesh", "res://.godot/imported/Fence_End_Modular.obj-33e13e0181a4e73996ce7c4746a0e3cb.mesh"]
+
+[params]
+
+generate_tangents=true
+generate_lods=true
+generate_shadow_mesh=true
+generate_lightmap_uv2=false
+generate_lightmap_uv2_texel_size=0.2
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+force_disable_mesh_compression=false

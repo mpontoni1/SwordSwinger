@@ -1,0 +1,25 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://ukog31pvrltl"
+path="res://.godot/imported/Arch_Door_bottompivot.obj-5975624981baee95e6b1467aea1cf767.mesh"
+
+[deps]
+
+files=["res://.godot/imported/Arch_Door_bottompivot.obj-5975624981baee95e6b1467aea1cf767.mesh"]
+
+source_file="res://Assets/Arch_Door_bottompivot.obj"
+dest_files=["res://.godot/imported/Arch_Door_bottompivot.obj-5975624981baee95e6b1467aea1cf767.mesh", "res://.godot/imported/Arch_Door_bottompivot.obj-5975624981baee95e6b1467aea1cf767.mesh"]
+
+[params]
+
+generate_tangents=true
+generate_lods=true
+generate_shadow_mesh=true
+generate_lightmap_uv2=false
+generate_lightmap_uv2_texel_size=0.2
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+force_disable_mesh_compression=false
