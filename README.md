@@ -4,19 +4,19 @@
 <h3>M</h3>
 <b>Unfinished:</b>
 <ul>
-<li>Weapon implementation</li>
 <li>Attack implementation</li>
 <li>Health system</li>
 <li>Mob system</li>
 </ul>
 <b>Working on:</b>
 <ul>
-<li>Map design</li>
+<li>Weapon implementation</li>
 </ul>
 <b>Finished:</b>
 <ul>
 <li>Character animation</li>
 <li>Character movement</li>
+<li>Map design</li>
 </ul>
 
 <br>
