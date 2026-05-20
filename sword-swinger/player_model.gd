@@ -9,8 +9,10 @@ extends CharacterBody3D
 @onready var Particle1: CPUParticles3D = $Viking_Male/CharacterArmature/Skeleton3D/BoneAttachment3D3/CPUParticles3D
 @onready var hp: Label3D = $Viking_Male/Label3D
 
-var SPEED := 6.0
-var HEALTH := 100
+#var SPEED := 6.0
+#var HEALTH := 100 obsolete
+
+
 const ROLL_SPEED := 15.0
 const ROTATION_SPEED := 6.0
 
@@ -25,8 +27,8 @@ func _ready() -> void:
 	anim_player.animation_finished.connect(_on_animation_finished)
 
 func _on_animation_finished(anim_name: String) -> void:
-	anim_player.speed_scale = 1.0
-	SPEED = 6.0
+	#anim_player.speed_scale = 1.0
+	#SPEED = 6.0
 	if anim_name == "CharacterArmature|Roll":
 		is_rolling = false
 	elif anim_name == "CharacterArmature|SwordSlash":
@@ -57,7 +59,7 @@ func _physics_process(delta: float) -> void:
 	if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT) \
 			and not is_attacking and not is_rolling:
 		anim_player.speed_scale = 2.0
-		SPEED = 10.0
+		#SPEED = 10.0
 		Particle1.emitting = true
 		Particle2.emitting = true
 		Particle1.lifetime = 1.42
@@ -76,7 +78,7 @@ func _physics_process(delta: float) -> void:
 		_handle_idle(delta)
 
 	move_and_slide()
-	hp.text = str(HEALTH)
+	hp.text = str(PlayerStats.current_hp)
 
 # --- Helpers ---
 
@@ -107,8 +109,8 @@ func _handle_roll(delta: float) -> void:
 	model.rotation.y = lerp_angle(model.rotation.y, angle, ROTATION_SPEED * delta)
 
 func _handle_movement(direction: Vector3, delta: float) -> void:
-	velocity.x = direction.x * SPEED
-	velocity.z = direction.z * SPEED
+	velocity.x = direction.x * PlayerStats.move_speed
+	velocity.z = direction.z * PlayerStats.move_speed
 	var angle := atan2(direction.x, direction.z)
 	model.rotation.y = lerp_angle(model.rotation.y, angle, ROTATION_SPEED * delta)
 	if not is_attacking:
@@ -117,8 +119,8 @@ func _handle_movement(direction: Vector3, delta: float) -> void:
 		Particle2.emitting = true
 
 func _handle_idle(_delta: float) -> void:
-	velocity.x = move_toward(velocity.x, 0, SPEED)
-	velocity.z = move_toward(velocity.z, 0, SPEED)
+	velocity.x = move_toward(velocity.x, 0, PlayerStats.move_speed)
+	velocity.z = move_toward(velocity.z, 0, PlayerStats.move_speed)
 	if not is_attacking:
 		play_anim("CharacterArmature|Idle")
 		Particle1.emitting = false
@@ -129,7 +131,7 @@ func play_anim(anim_name: String) -> void:
 		anim_player.play(anim_name)
 
 func _roll_cooldown() -> void:
-	await get_tree().create_timer(1.0).timeout
+	await get_tree().create_timer(PlayerStats.dodge_cooldown).timeout
 	can_roll = true
 
 func attack() -> void:
@@ -141,8 +143,8 @@ func attack() -> void:
 func get_damage_player() -> void:
 	if is_dead:
 		return
-	HEALTH -= 10
-	if HEALTH <= 0:
+	PlayerStats.take_damage(10)
+	if PlayerStats.current_hp <= 0:
 		hp.text = str(0)
 		die()
 
