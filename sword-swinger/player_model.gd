@@ -7,9 +7,10 @@ extends CharacterBody3D
 @onready var hit_box: Area3D = $HitBox
 @onready var Particle2: CPUParticles3D = $Viking_Male/CharacterArmature/Skeleton3D/BoneAttachment3D2/CPUParticles3D
 @onready var Particle1: CPUParticles3D = $Viking_Male/CharacterArmature/Skeleton3D/BoneAttachment3D3/CPUParticles3D
+@onready var hp: Label3D = $Viking_Male/Label3D
 
-# Constants
 var SPEED := 6.0
+var HEALTH := 100
 const ROLL_SPEED := 15.0
 const ROTATION_SPEED := 6.0
 
@@ -18,6 +19,7 @@ var is_rolling := false
 var can_roll := true
 var roll_direction := Vector3.ZERO
 var is_attacking := false
+var is_dead := false
 
 func _ready() -> void:
 	anim_player.animation_finished.connect(_on_animation_finished)
@@ -35,8 +37,14 @@ func _on_animation_finished(anim_name: String) -> void:
 		Particle2.speed_scale = 1
 		Particle1.amount = 8
 		Particle2.amount = 8
+	elif anim_name == "CharacterArmature|Death":
+		get_tree().reload_current_scene()
 
 func _physics_process(delta: float) -> void:
+	if is_dead:
+		velocity = Vector3.ZERO
+		return
+
 	if not is_on_floor():
 		velocity += get_gravity() * delta
 
@@ -58,7 +66,6 @@ func _physics_process(delta: float) -> void:
 		Particle2.speed_scale = 4.3
 		Particle1.amount = 15
 		Particle2.amount = 15
-
 		_start_attack()
 
 	if is_rolling:
@@ -69,6 +76,7 @@ func _physics_process(delta: float) -> void:
 		_handle_idle(delta)
 
 	move_and_slide()
+	hp.text = str(HEALTH)
 
 # --- Helpers ---
 
@@ -108,8 +116,6 @@ func _handle_movement(direction: Vector3, delta: float) -> void:
 		Particle1.emitting = true
 		Particle2.emitting = true
 
-
-
 func _handle_idle(_delta: float) -> void:
 	velocity.x = move_toward(velocity.x, 0, SPEED)
 	velocity.z = move_toward(velocity.z, 0, SPEED)
@@ -117,6 +123,7 @@ func _handle_idle(_delta: float) -> void:
 		play_anim("CharacterArmature|Idle")
 		Particle1.emitting = false
 		Particle2.emitting = false
+
 func play_anim(anim_name: String) -> void:
 	if anim_player.current_animation != anim_name:
 		anim_player.play(anim_name)
@@ -128,5 +135,22 @@ func _roll_cooldown() -> void:
 func attack() -> void:
 	var enemies = hit_box.get_overlapping_bodies()
 	for enemy in enemies:
-		if enemy.has_method("get_damage"):
-			enemy.get_damage()
+		if enemy.has_method("get_damage_mob"):
+			enemy.get_damage_mob()
+
+func get_damage_player() -> void:
+	if is_dead:
+		return
+	HEALTH -= 10
+	if HEALTH <= 0:
+		hp.text = str(0)
+		die()
+
+func die() -> void:
+	is_dead = true
+	is_attacking = false
+	is_rolling = false
+	velocity = Vector3.ZERO
+	Particle1.emitting = false
+	Particle2.emitting = false
+	play_anim("CharacterArmature|Death")
