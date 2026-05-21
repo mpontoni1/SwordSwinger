@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="WaveDefinition" format=3 uid="uid://ckm8kpa07rfoe"]
+
+[ext_resource type="PackedScene" uid="uid://v5p2pvwqh625" path="res://scenes/enemy_boss.tscn" id="1_rna4w"]
+[ext_resource type="Script" uid="uid://dfehxpwceuxk6" path="res://scripts/wave_definition.gd" id="1_wavedef"]
+
+[resource]
+script = ExtResource("1_wavedef")
+enemies = Array[PackedScene]([ExtResource("1_rna4w")])
+metadata/_custom_type_script = "uid://dfehxpwceuxk6"

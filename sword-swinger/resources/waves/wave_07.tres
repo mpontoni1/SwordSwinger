@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="WaveDefinition" format=3 uid="uid://b30dovo6af2xi"]
+
+[ext_resource type="Script" uid="uid://dfehxpwceuxk6" path="res://scripts/wave_definition.gd" id="1_wavedef"]
+[ext_resource type="PackedScene" uid="uid://c4pyqlnju672n" path="res://scenes/enemy.tscn" id="2_enemy"]
+
+[resource]
+script = ExtResource("1_wavedef")
+enemies = Array[PackedScene]([ExtResource("2_enemy"), ExtResource("2_enemy"), ExtResource("2_enemy"), ExtResource("2_enemy"), ExtResource("2_enemy"), ExtResource("2_enemy"), ExtResource("2_enemy"), ExtResource("2_enemy")])
+display_name = "Wave 7"

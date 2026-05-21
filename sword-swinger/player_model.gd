@@ -141,10 +141,10 @@ func attack() -> void:
 		if enemy.has_method("get_damage_mob"):
 			enemy.get_damage_mob(PlayerStats.get_attack_damage())
 
-func get_damage_player() -> void:
+func get_damage_player(amount: int = 10) -> void:
 	if is_dead:
 		return
-	PlayerStats.take_damage(10)
+	PlayerStats.take_damage(amount)
 	if PlayerStats.current_hp <= 0:
 		hp.text = str(0)
 		die()

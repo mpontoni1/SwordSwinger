@@ -1,7 +1,7 @@
-[gd_scene format=4 uid="uid://c4pyqlnju672n"]
+[gd_scene format=4 uid="uid://v5p2pvwqh625"]
 
-[ext_resource type="Script" uid="uid://d2rifkdxhuie7" path="res://scripts/enemy.gd" id="1_7k104"]
-[ext_resource type="PackedScene" uid="uid://ctprtnx4duab" path="res://scenes/hp_bar_3d.tscn" id="2_md0e3"]
+[ext_resource type="Script" uid="uid://d2rifkdxhuie7" path="res://scripts/enemy.gd" id="1_xu5hf"]
+[ext_resource type="PackedScene" uid="uid://ctprtnx4duab" path="res://scenes/hp_bar_3d.tscn" id="2_lq6pu"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cyslp"]
 resource_name = "Skin"
@@ -168,6 +168,9 @@ bind/21/pose = Transform3D(-1, 5.3337914e-07, -1.5050516e-05, -3.569918e-07, -0.
 bind/22/name = &"PoleTarget.R"
 bind/22/bone = -1
 bind/22/pose = Transform3D(1, -7.1525596e-07, 0, -5.684343e-14, 1.1920933e-07, 1.0000001, -7.1525574e-07, -1.0000001, 0, 0.0026068247, -0.007221176, -0.009630323)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xu5hf"]
+albedo_color = Color(1, 0, 0.28707156, 1)
 
 [sub_resource type="SphereMesh" id="SphereMesh_u1c7o"]
 
@@ -4320,7 +4323,11 @@ height = 1.003418
 radius = 0.64453125
 
 [node name="enemy" type="CharacterBody3D" unique_id=1520951736]
-script = ExtResource("1_7k104")
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
+script = ExtResource("1_xu5hf")
+max_health = 200
+damage = 25
+attack_cooldown = 1.0
 
 [node name="Goblin_Male" type="Node3D" parent="." unique_id=956665788]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
@@ -4558,6 +4565,7 @@ bones/31/scale = Vector3(1, 1, 1)
 mesh = SubResource("ArrayMesh_mjjss")
 skin = SubResource("Skin_igdls")
 skeleton = NodePath("..")
+surface_material_override/0 = SubResource("StandardMaterial3D_xu5hf")
 
 [node name="BoneAttachment3D" type="BoneAttachment3D" parent="Goblin_Male/CharacterArmature/Skeleton3D" unique_id=1355579510]
 transform = Transform3D(0.9999735, 0.0014919257, 0.007130876, 0.007285136, -0.21081685, -0.97749823, 4.49542e-05, 0.9775242, -0.21082214, -6.270652e-05, -0.0002786294, 0.0151122715)
@@ -4603,4 +4611,4 @@ shape = SubResource("CapsuleShape3D_c8ghq")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.96672773, 0.21679449)
 shape = SubResource("CylinderShape3D_u1c7o")
 
-[node name="HpBar3D" parent="." unique_id=1886851909 instance=ExtResource("2_md0e3")]
+[node name="HpBar3D" parent="." unique_id=1886851909 instance=ExtResource("2_lq6pu")]

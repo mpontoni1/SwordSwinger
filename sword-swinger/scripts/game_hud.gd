@@ -68,13 +68,14 @@ func _ready() -> void:
 
 	# Optional wave signals — only if WaveManager autoload exists.
 	if has_node("/root/WaveManager"):
-		var wm = get_node("/root/WaveManager")
-		wm.wave_started.connect(_on_wave_started)
-		wm.wave_cleared.connect(_on_wave_cleared)
-		wm.run_won.connect(_on_run_won)
-		wm.run_lost.connect(_on_run_lost)
+			var wm = get_node("/root/WaveManager")
+			wm.wave_started.connect(_on_wave_started)
+			wm.wave_cleared.connect(_on_wave_cleared)
+			wm.run_won.connect(_on_run_won)
+			wm.run_lost.connect(_on_run_lost)
+			_wave_label.text = "Press F to begin"
 	else:
-		_wave_label.text = "Free play"
+			_wave_label.text = "Free play"
 
 
 func _update_hp() -> void:

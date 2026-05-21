@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 PlayerStats="*uid://dmdc3a8vgamvi"
 BoonManager="*uid://c17e1nyt5j1kf"
+WaveManager="*uid://260it7u7ucvj"
 
 [editor_plugins]
 
