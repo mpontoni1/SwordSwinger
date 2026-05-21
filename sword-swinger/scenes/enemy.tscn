@@ -1,6 +1,7 @@
 [gd_scene format=4 uid="uid://c4pyqlnju672n"]
 
 [ext_resource type="Script" uid="uid://d2rifkdxhuie7" path="res://enemy.gd" id="1_7k104"]
+[ext_resource type="PackedScene" uid="uid://ctprtnx4duab" path="res://scenes/hp_bar_3d.tscn" id="2_md0e3"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cyslp"]
 resource_name = "Skin"
@@ -4602,3 +4603,5 @@ shape = SubResource("CapsuleShape3D_c8ghq")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=1794473751]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.96672773, 0.21679449)
 shape = SubResource("CylinderShape3D_u1c7o")
+
+[node name="HpBar3D" parent="." unique_id=1886851909 instance=ExtResource("2_md0e3")]

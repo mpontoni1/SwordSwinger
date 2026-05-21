@@ -7,10 +7,15 @@ extends CharacterBody3D
 @onready var death_particle: CPUParticles3D = $Goblin_Male/CharacterArmature/Skeleton3D/BoneAttachment3D/CPUParticles3D
 
 var player = null
-var HEALTH = 20
 var is_attacking = false
 var can_deal_damage = true
 var is_dead = false
+
+@export var max_health: int = 20
+var HEALTH: int
+
+func _init() -> void:
+	HEALTH = max_health
 
 const SPEED = 5.0
 const ROTATION_SPEED = 6.0

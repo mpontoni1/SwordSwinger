@@ -1,0 +1,51 @@
+[gd_scene format=3 uid="uid://ctprtnx4duab"]
+
+[ext_resource type="Script" uid="uid://mrefyt8n32kb" path="res://scripts/hp_bar_3d.gd" id="1_script"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_1"]
+viewport_path = NodePath("Sprite3D/SubViewport")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bg"]
+bg_color = Color(0.1, 0.1, 0.1, 0.85)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fill"]
+bg_color = Color(0.3, 0.85, 0.3, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+
+[sub_resource type="Theme" id="Theme_1"]
+ProgressBar/styles/background = SubResource("StyleBoxFlat_bg")
+ProgressBar/styles/fill = SubResource("StyleBoxFlat_fill")
+
+[node name="HpBar3D" type="Node3D" unique_id=1886851909]
+script = ExtResource("1_script")
+
+[node name="Sprite3D" type="Sprite3D" parent="." unique_id=1200303393]
+pixel_size = 0.005
+billboard = 1
+no_depth_test = true
+texture_filter = 0
+texture = SubResource("ViewportTexture_1")
+
+[node name="SubViewport" type="SubViewport" parent="Sprite3D" unique_id=524065786]
+transparent_bg = true
+size = Vector2i(240, 40)
+render_target_update_mode = 4
+
+[node name="Bar" type="ProgressBar" parent="Sprite3D/SubViewport" unique_id=1276561427]
+offset_right = 240.0
+offset_bottom = 40.0
+theme = SubResource("Theme_1")
+value = 100.0
+show_percentage = false
