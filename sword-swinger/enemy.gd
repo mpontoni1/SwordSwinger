@@ -88,10 +88,10 @@ func attack() -> void:
 		if body.has_method("get_damage_player"):
 			body.get_damage_player()
 
-func get_damage_mob() -> void:
+func get_damage_mob(amount: int = 10) -> void:
 	if is_dead:
 		return
-	HEALTH -= 10
+	HEALTH -= amount
 	if HEALTH <= 0:
 		die()
 

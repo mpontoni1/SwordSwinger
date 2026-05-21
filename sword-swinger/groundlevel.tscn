@@ -15,6 +15,7 @@
 [ext_resource type="ArrayMesh" uid="uid://cpbsbqtr4u78k" path="res://Assets/Floor_BricksSeparate2.obj" id="13_u1c7o"]
 [ext_resource type="ArrayMesh" uid="uid://da7krs27uuxfi" path="res://Assets/Floor_BricksSeparate.obj" id="14_ohthm"]
 [ext_resource type="PackedScene" uid="uid://c4pyqlnju672n" path="res://enemy.tscn" id="15_u1c7o"]
+[ext_resource type="PackedScene" uid="uid://08s4ky4xl0hs" path="res://scenes/boon_shrine.tscn" id="16_ohthm"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_3mv56"]
 ground_bottom_color = Color(0.56534773, 0.4272548, 1, 1)
@@ -632,3 +633,6 @@ shape = SubResource("BoxShape3D_fenjb")
 
 [node name="enemy" parent="NavigationRegion3D" unique_id=1520951736 instance=ExtResource("15_u1c7o")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3650887, 0)
+
+[node name="BoonShrine" parent="." unique_id=480917213 instance=ExtResource("16_ohthm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.71, 0.5, 6.852)
