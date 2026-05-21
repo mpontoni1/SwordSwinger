@@ -2,6 +2,7 @@
 
 [ext_resource type="ArrayMesh" uid="uid://dd42b6cq4ncwe" path="res://ground.obj" id="1_4cc1g"]
 [ext_resource type="PackedScene" uid="uid://vmbksudsdio8" path="res://player_model.tscn" id="2_6pc7u"]
+[ext_resource type="PackedScene" uid="uid://ctprtnx4duab" path="res://scenes/hp_bar_3d.tscn" id="2_c8kgc"]
 [ext_resource type="ArrayMesh" uid="uid://bud85ipeeqa6x" path="res://Assets/Wall.obj" id="3_6pc7u"]
 [ext_resource type="ArrayMesh" uid="uid://cuo0imlvioli8" path="res://Assets/Crate.obj" id="3_wsssi"]
 [ext_resource type="ArrayMesh" uid="uid://b3gaqcyf4qqeq" path="res://Assets/PointyTower.obj" id="4_3mv56"]
@@ -14,8 +15,9 @@
 [ext_resource type="ArrayMesh" uid="uid://k8v67v653yja" path="res://Assets/Barrel.obj" id="11_754je"]
 [ext_resource type="ArrayMesh" uid="uid://cpbsbqtr4u78k" path="res://Assets/Floor_BricksSeparate2.obj" id="13_u1c7o"]
 [ext_resource type="ArrayMesh" uid="uid://da7krs27uuxfi" path="res://Assets/Floor_BricksSeparate.obj" id="14_ohthm"]
-[ext_resource type="PackedScene" uid="uid://c4pyqlnju672n" path="res://enemy.tscn" id="15_u1c7o"]
+[ext_resource type="PackedScene" uid="uid://c4pyqlnju672n" path="res://scenes/enemy.tscn" id="15_u1c7o"]
 [ext_resource type="PackedScene" uid="uid://08s4ky4xl0hs" path="res://scenes/boon_shrine.tscn" id="16_ohthm"]
+[ext_resource type="Script" uid="uid://uh8ue6h0pb1" path="res://scripts/game_hud.gd" id="17_5pbmj"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_3mv56"]
 ground_bottom_color = Color(0.56534773, 0.4272548, 1, 1)
@@ -99,6 +101,9 @@ size = Vector3(10, 0.5366211, 10)
 
 [node name="PlayerModel" parent="." unique_id=1597763153 instance=ExtResource("2_6pc7u")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+
+[node name="HpBar3D" parent="PlayerModel" unique_id=1886851909 instance=ExtResource("2_c8kgc")]
+mode = "player"
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=544454622]
 transform = Transform3D(1, 0, 0, 0, 0.7071067, 0.70710677, 0, -0.70710677, 0.7071067, 0, 14, 3)
@@ -636,3 +641,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3650887, 0)
 
 [node name="BoonShrine" parent="." unique_id=480917213 instance=ExtResource("16_ohthm")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.71, 0.5, 6.852)
+
+[node name="HUD" type="CanvasLayer" parent="." unique_id=1908299428]
+script = ExtResource("17_5pbmj")
