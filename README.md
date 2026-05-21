@@ -26,17 +26,17 @@
 <h3>T</h3>
 <b>Unfinished:</b>
 <ul>
-<li> "Boon" system</li>
+
 <li> Ability system</li>
-<li> Title and menu design</li>
+
 <li> Boss implementation</li>
 <li> Sound system</li>
 </ul>
 <b>Working on:</b>
 <ul>
-
+  <li> Title and menu design</li>
 </ul>
 <b>Finished:</b>
 <ul>
-  
+  <li> "Boon" system</li>
 </ul>
