@@ -26,10 +26,7 @@
 <h3>T</h3>
 <b>Unfinished:</b>
 <ul>
-
-<li> Ability system</li>
-
-<li> Boss implementation</li>
+<li> Polish </li>
 <li> Sound system</li>
 </ul>
 <b>Working on:</b>
@@ -39,4 +36,6 @@
 <b>Finished:</b>
 <ul>
   <li> "Boon" system</li>
+  <li> Boss implementation</li>
+  <li>HUD</li>
 </ul>
