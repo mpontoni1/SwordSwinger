@@ -11,11 +11,14 @@ var is_attacking = false
 var can_deal_damage = true
 var is_dead = false
 
+signal died(enemy)
+
 @export var max_health: int = 20
+@export var damage: int = 10
 var HEALTH: int
 
-func _init() -> void:
-	HEALTH = max_health
+# _init runs BEFORE @export values are applied from the scene,
+# so we initialize HEALTH in _ready instead.
 
 const SPEED = 5.0
 const ROTATION_SPEED = 6.0
@@ -24,10 +27,18 @@ const ROTATION_SPEED = 6.0
 @onready var nav_agent = $NavigationAgent3D
 
 func _ready():
+	HEALTH = max_health
 	if not has_node("NavigationAgent3D"):
 		push_error("Missing NavigationAgent3D child on " + name)
 		return
-	player = get_node(player_path)
+	# Only use player_path if it actually points somewhere valid
+	if player_path and has_node(player_path):
+		player = get_node(player_path)
+	else:
+		# Fall back to "player" group — works for runtime-spawned enemies
+		var players := get_tree().get_nodes_in_group("player")
+		if not players.is_empty():
+			player = players[0]
 	attack_area.body_entered.connect(_on_attack_area_body_entered)
 	attack_area.body_exited.connect(_on_attack_area_body_exited)
 	anim_player.animation_finished.connect(_on_animation_finished)
@@ -91,7 +102,7 @@ func attack() -> void:
 	var bodies = attack_area.get_overlapping_bodies()
 	for body in bodies:
 		if body.has_method("get_damage_player"):
-			body.get_damage_player()
+			body.get_damage_player(damage)
 
 func get_damage_mob(amount: int = 10) -> void:
 	if is_dead:
@@ -101,10 +112,10 @@ func get_damage_mob(amount: int = 10) -> void:
 		die()
 
 func die() -> void:
+	died.emit(self)
 	is_dead = true
 	is_attacking = false
 	velocity = Vector3.ZERO
 	hp.text = "0"
 	play_anim("CharacterArmature|Death")
 	death_particle.emitting = true
-	

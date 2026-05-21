@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://dpgidrskpnltc"]
 
 [ext_resource type="ArrayMesh" uid="uid://dd42b6cq4ncwe" path="res://ground.obj" id="1_4cc1g"]
+[ext_resource type="Script" uid="uid://bpma436g6tw14" path="res://scripts/level_controller.gd" id="1_c8kgc"]
 [ext_resource type="PackedScene" uid="uid://vmbksudsdio8" path="res://player_model.tscn" id="2_6pc7u"]
 [ext_resource type="PackedScene" uid="uid://ctprtnx4duab" path="res://scenes/hp_bar_3d.tscn" id="2_c8kgc"]
 [ext_resource type="ArrayMesh" uid="uid://bud85ipeeqa6x" path="res://Assets/Wall.obj" id="3_6pc7u"]
@@ -15,8 +16,6 @@
 [ext_resource type="ArrayMesh" uid="uid://k8v67v653yja" path="res://Assets/Barrel.obj" id="11_754je"]
 [ext_resource type="ArrayMesh" uid="uid://cpbsbqtr4u78k" path="res://Assets/Floor_BricksSeparate2.obj" id="13_u1c7o"]
 [ext_resource type="ArrayMesh" uid="uid://da7krs27uuxfi" path="res://Assets/Floor_BricksSeparate.obj" id="14_ohthm"]
-[ext_resource type="PackedScene" uid="uid://c4pyqlnju672n" path="res://scenes/enemy.tscn" id="15_u1c7o"]
-[ext_resource type="PackedScene" uid="uid://08s4ky4xl0hs" path="res://scenes/boon_shrine.tscn" id="16_ohthm"]
 [ext_resource type="Script" uid="uid://uh8ue6h0pb1" path="res://scripts/game_hud.gd" id="17_5pbmj"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_3mv56"]
@@ -98,6 +97,7 @@ stencil_flags = 2
 size = Vector3(10, 0.5366211, 10)
 
 [node name="mainlevel" type="Node3D" unique_id=301331883]
+script = ExtResource("1_c8kgc")
 
 [node name="PlayerModel" parent="." unique_id=1597763153 instance=ExtResource("2_6pc7u")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
@@ -636,11 +636,23 @@ surface_material_override/0 = SubResource("StandardMaterial3D_3mv56")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.23168953, 0)
 shape = SubResource("BoxShape3D_fenjb")
 
-[node name="enemy" parent="NavigationRegion3D" unique_id=1520951736 instance=ExtResource("15_u1c7o")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3650887, 0)
+[node name="Marker3D" type="Marker3D" parent="NavigationRegion3D" unique_id=641385207 groups=["enemy_spawn"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -27.06, 0.55, 0)
 
-[node name="BoonShrine" parent="." unique_id=480917213 instance=ExtResource("16_ohthm")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.71, 0.5, 6.852)
+[node name="Marker3D2" type="Marker3D" parent="NavigationRegion3D" unique_id=635305522 groups=["enemy_spawn"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.315, 0, 0)
+
+[node name="Marker3D3" type="Marker3D" parent="NavigationRegion3D" unique_id=843762205 groups=["enemy_spawn"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 25.555)
+
+[node name="Marker3D4" type="Marker3D" parent="NavigationRegion3D" unique_id=2026431301]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.685, 0, -23.135)
+
+[node name="Marker3D5" type="Marker3D" parent="NavigationRegion3D" unique_id=1023438553]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26.475, 0, 27.635)
+
+[node name="Marker3D6" type="Marker3D" parent="NavigationRegion3D" unique_id=361830545]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24.935, 0, 26.995)
 
 [node name="HUD" type="CanvasLayer" parent="." unique_id=1908299428]
 script = ExtResource("17_5pbmj")
