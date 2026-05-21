@@ -1,0 +1,40 @@
+[gd_scene format=3 uid="uid://08s4ky4xl0hs"]
+
+[ext_resource type="Script" uid="uid://bh4rjaicgdegn" path="res://scripts/boon_shrine.gd" id="1_qy1e5"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_phkyp"]
+radius = 2.5
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_r45x1"]
+top_radius = 0.4
+bottom_radius = 0.6
+height = 1.5
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dody5"]
+albedo_color = Color(1, 0.9309246, 0.48452926, 1)
+emission_enabled = true
+emission = Color(1, 0, 0, 1)
+emission_energy_multiplier = 1.5
+
+[node name="BoonShrine" type="Area3D" unique_id=480917213]
+script = ExtResource("1_qy1e5")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1744169527]
+transform = Transform3D(0.99999547, -0.002552807, 0.0015916093, 0.0025550195, 0.99999577, -0.0013931844, -0.0015880556, 0.0013972338, 0.99999774, 0, 0, 0)
+shape = SubResource("CylinderShape3D_phkyp")
+
+[node name="Visual" type="MeshInstance3D" parent="." unique_id=638169902]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.75, 0)
+mesh = SubResource("CylinderMesh_r45x1")
+surface_material_override/0 = SubResource("StandardMaterial3D_dody5")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Visual" unique_id=1073284656]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+light_color = Color(1, 0.48452926, 0.3491902, 1)
+light_energy = 2.0
+omni_range = 6.0
+
+[node name="PromptLabel" type="Label3D" parent="." unique_id=719073015]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, 0)
+text = "Press E for a blessing"
+font_size = 64

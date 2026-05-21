@@ -24,6 +24,7 @@ var is_attacking := false
 var is_dead := false
 
 func _ready() -> void:
+	add_to_group("player")
 	anim_player.animation_finished.connect(_on_animation_finished)
 
 func _on_animation_finished(anim_name: String) -> void:
@@ -138,7 +139,7 @@ func attack() -> void:
 	var enemies = hit_box.get_overlapping_bodies()
 	for enemy in enemies:
 		if enemy.has_method("get_damage_mob"):
-			enemy.get_damage_mob()
+			enemy.get_damage_mob(PlayerStats.get_attack_damage())
 
 func get_damage_player() -> void:
 	if is_dead:
