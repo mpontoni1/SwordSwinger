@@ -22,20 +22,30 @@
 </ul>
 
 <br>
+<h3>POLISHING -> OPTIONAL</h3>
+<ul>
+
+<li>Sword artefact bug</li>
+<li>enemy knockback on hit</li>
+<li>enemy animation when attacking</li>
+<li>Seperate ability</li>
+</ul>
+
+<br>
 
 <h3>T</h3>
 <b>Unfinished:</b>
 <ul>
-<li> Polish </li>
-<li> Sound system</li>
+<li> Title and menu design</li>
 </ul>
 <b>Working on:</b>
 <ul>
-  <li> Title and menu design</li>
+
 </ul>
 <b>Finished:</b>
 <ul>
   <li> "Boon" system</li>
   <li> Boss implementation</li>
   <li>HUD</li>
+<li> Sound system</li>
 </ul>
