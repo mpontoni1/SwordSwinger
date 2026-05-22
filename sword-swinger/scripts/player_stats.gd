@@ -8,8 +8,9 @@ signal player_died
 
 const BASE_MAX_HP := 100
 const BASE_MOVE_SPEED := 6.0
-const BASE_DAMAGE := 10
+const BASE_DAMAGE := 5
 const BASE_DODGE_COOLDOWN := 1.0
+const BASE_HP_REGEN = 1.0
 
 var max_hp: int = BASE_MAX_HP
 var current_hp: int = BASE_MAX_HP
@@ -17,7 +18,7 @@ var move_speed: float = BASE_MOVE_SPEED
 var damage_mult: float = 1.0
 var attack_speed_mult: float = 1.0
 var dodge_cooldown: float = BASE_DODGE_COOLDOWN
-var hp_regen_per_sec: float = 0.0
+var hp_regen_per_sec: float = BASE_HP_REGEN
 
 var owned_boons: Array[BoonEffect] = []
 var _regen_accum: float = 0.0
@@ -74,7 +75,7 @@ func reset() -> void:
 	damage_mult = 1.0
 	attack_speed_mult = 1.0
 	dodge_cooldown = BASE_DODGE_COOLDOWN
-	hp_regen_per_sec = 0.0
+	hp_regen_per_sec = BASE_HP_REGEN
 	_regen_accum = 0.0
 	owned_boons.clear()
 	stats_changed.emit()

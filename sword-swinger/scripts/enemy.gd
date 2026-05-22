@@ -108,11 +108,13 @@ func get_damage_mob(amount: int = 10) -> void:
 	if is_dead:
 		return
 	HEALTH -= amount
+	SoundManager.play("enemy_hurt")
 	if HEALTH <= 0:
 		die()
 
 func die() -> void:
 	died.emit(self)
+	SoundManager.play("enemy_die")
 	is_dead = true
 	is_attacking = false
 	velocity = Vector3.ZERO

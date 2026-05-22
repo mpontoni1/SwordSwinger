@@ -59,6 +59,10 @@ func _physics_process(delta: float) -> void:
 
 	if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT) \
 			and not is_attacking and not is_rolling:
+				
+		#audio:
+		SoundManager.play("sword_swing")
+		
 		anim_player.speed_scale = 2.0
 		#SPEED = 10.0
 		Particle1.emitting = true
@@ -96,6 +100,7 @@ func _start_roll(direction: Vector3) -> void:
 	can_roll = false
 	roll_direction = direction
 	play_anim("CharacterArmature|Roll")
+	SoundManager.play("roll")
 	_roll_cooldown()
 
 func _start_attack() -> void:
@@ -140,11 +145,13 @@ func attack() -> void:
 	for enemy in enemies:
 		if enemy.has_method("get_damage_mob"):
 			enemy.get_damage_mob(PlayerStats.get_attack_damage())
+			SoundManager.play("sword_hit")
 
 func get_damage_player(amount: int = 10) -> void:
 	if is_dead:
 		return
 	PlayerStats.take_damage(amount)
+	SoundManager.play("player_hurt") 
 	if PlayerStats.current_hp <= 0:
 		hp.text = str(0)
 		die()

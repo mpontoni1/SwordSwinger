@@ -29,7 +29,7 @@ script = ExtResource("1_sc24m")
 [node name="Viking_Male" parent="." unique_id=299443933 instance=ExtResource("1_qge56")]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
 
-[node name="Skeleton3D" parent="Viking_Male/CharacterArmature" parent_id_path=PackedInt32Array(299443933, 1865540512) index="0" unique_id=805344541]
+[node name="Skeleton3D" parent="Viking_Male/CharacterArmature" parent_id_path=PackedInt32Array(299443933, 1653737612) index="0" unique_id=2092872889]
 bones/1/rotation = Quaternion(5.2050214e-06, 0.7029519, 0.71123743, 5.339949e-06)
 bones/3/position = Vector3(-2.985512e-05, 0.009695293, 0.0009237294)
 bones/3/rotation = Quaternion(-0.0005175279, 0.0036429977, 2.442764e-05, 0.9999933)
@@ -63,7 +63,7 @@ bones/28/rotation = Quaternion(-5.60106e-06, 0.7029519, 0.71123743, -4.948525e-0
 bones/30/position = Vector3(-0.002593738, 0.0010974836, 0.018516364)
 bones/30/rotation = Quaternion(-3.5527234e-15, -5.960465e-07, 1.6940652e-21, 1)
 
-[node name="Body2" parent="Viking_Male/CharacterArmature/Skeleton3D" index="0" unique_id=451794743]
+[node name="Body2" parent="Viking_Male/CharacterArmature/Skeleton3D" index="0" unique_id=1291827292]
 transform = Transform3D(1.0000002, -1.7484558e-07, -2.0843216e-14, 1.7484558e-07, 1.0000002, -2.842171e-14, 2.084322e-14, 2.842171e-14, 1.0000002, 0, -7.116292e-12, -8.483282e-19)
 surface_material_override/0 = SubResource("StandardMaterial3D_sc24m")
 surface_material_override/5 = SubResource("StandardMaterial3D_yqb6h")
