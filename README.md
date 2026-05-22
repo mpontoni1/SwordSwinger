@@ -31,6 +31,7 @@
 <li>Seperate ability</li>
 <li>rework bossfight</li>
 <li>make sword swing directional (at least when facing boss, enemies can be attacked when standing behind)</li>
+<li>erase enemy hitbox (area3D) upon death</li>
 </ul>
 
 <br>
