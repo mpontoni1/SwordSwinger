@@ -100,6 +100,7 @@ func _start_roll(direction: Vector3) -> void:
 	can_roll = false
 	roll_direction = direction
 	play_anim("CharacterArmature|Roll")
+	SoundManager.play("roll")
 	_roll_cooldown()
 
 func _start_attack() -> void:

@@ -8,7 +8,7 @@
 extends Node
 
 const SFX_DIR := "res://audio/sfx/"
-const DEFAULT_VOLUME_DB := 0.0
+const DEFAULT_VOLUME_DB := -20.0
 
 # Map of sound key -> list of player pool. We pool a few players per key
 # so rapid-fire sounds (multiple sword swings, simultaneous enemy hits)
