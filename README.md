@@ -29,6 +29,8 @@
 <li>enemy knockback on hit</li>
 <li>enemy animation when attacking</li>
 <li>Seperate ability</li>
+<li>rework bossfight</li>
+<li>make sword swing directional (at least when facing boss, enemies can be attacked when standing behind)</li>
 </ul>
 
 <br>
