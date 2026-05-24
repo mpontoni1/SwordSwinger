@@ -24,7 +24,7 @@
 <br>
 <h3>POLISHING -> OPTIONAL</h3>
 <ul>
-
+<li>remove boon selection upon bossfight clear</li>
 <li>Sword artefact bug</li>
 <li>enemy knockback on hit</li>
 <li>enemy animation when attacking</li>
