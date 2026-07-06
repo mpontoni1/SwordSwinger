@@ -1,4 +1,4 @@
-<h1>"3D Graphics" Collage class project</h1>
+<h1>"3D Graphics" College class project</h1>
 <h3>TO-DO:</h3>
 <p>Please update the tasks corresponding to real progress:</p>
 <h3>M</h3>
@@ -22,7 +22,7 @@
 </ul>
 
 <br>
-<h3>POLISHING -> OPTIONAL</h3>
+<h3>POLISHING -> OPTIONAL (scope creep)</h3>
 <ul>
 <li>remove boon selection upon bossfight clear</li>
 <li>Sword artefact bug</li>
