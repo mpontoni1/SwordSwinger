@@ -17,8 +17,6 @@ signal died(enemy)
 @export var damage: int = 10
 var HEALTH: int
 
-# _init runs BEFORE @export values are applied from the scene,
-# so we initialize HEALTH in _ready instead.
 
 const SPEED = 5.0
 const ROTATION_SPEED = 6.0
@@ -31,11 +29,9 @@ func _ready():
 	if not has_node("NavigationAgent3D"):
 		push_error("Missing NavigationAgent3D child on " + name)
 		return
-	# Only use player_path if it actually points somewhere valid
 	if player_path and has_node(player_path):
 		player = get_node(player_path)
 	else:
-		# Fall back to "player" group — works for runtime-spawned enemies
 		var players := get_tree().get_nodes_in_group("player")
 		if not players.is_empty():
 			player = players[0]

@@ -8,9 +8,9 @@ func _unhandled_input(event: InputEvent) -> void:
 		elif event.keycode == KEY_R:
 			get_tree().reload_current_scene()
 		elif event.keycode == KEY_8:
-			# DEBUG: skip to boss wave
+			# debug, skip to boss wave
 			WaveManager.current_wave_index = 6  # next call increments to 7 (wave 8)
-			# Clear any in-progress enemies
+			# Clear alive enemies
 			for e in WaveManager.alive_enemies:
 				if is_instance_valid(e):
 					e.queue_free()

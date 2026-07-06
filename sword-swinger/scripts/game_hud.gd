@@ -1,7 +1,3 @@
-# Top-of-screen HUD, HP bar (top-left), wave counter (top-center, if WaveManager exists),
-# banner for wave clear
-
-
 extends CanvasLayer
 
 var _wave_label: Label
@@ -13,7 +9,6 @@ var _banner: Label
 func _ready() -> void:
 	layer = 5
 
-	# Wave label, top center
 	var wave_panel := PanelContainer.new()
 	wave_panel.set_anchors_preset(Control.PRESET_CENTER_TOP)
 	wave_panel.offset_left = -120
@@ -28,7 +23,7 @@ func _ready() -> void:
 	_wave_label.add_theme_font_size_override("font_size", 22)
 	wave_panel.add_child(_wave_label)
 
-	# HP bar, top left
+
 	var hp_box := VBoxContainer.new()
 	hp_box.set_anchors_preset(Control.PRESET_TOP_LEFT)
 	hp_box.offset_left = 16
@@ -46,7 +41,6 @@ func _ready() -> void:
 	_hp_bar.show_percentage = false
 	hp_box.add_child(_hp_bar)
 
-	# Big centered banner, hidden by default
 	_banner = Label.new()
 	_banner.set_anchors_preset(Control.PRESET_CENTER)
 	_banner.offset_left = -300
@@ -66,7 +60,6 @@ func _ready() -> void:
 	PlayerStats.stats_changed.connect(_update_hp)
 	_update_hp()
 
-	# Optional wave signals — only if WaveManager autoload exists.
 	if has_node("/root/WaveManager"):
 			var wm = get_node("/root/WaveManager")
 			wm.wave_started.connect(_on_wave_started)

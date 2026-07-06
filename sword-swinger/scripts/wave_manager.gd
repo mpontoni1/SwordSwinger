@@ -58,7 +58,7 @@ func _start_next_wave() -> void:
 	if current_wave_index >= all_waves.size():
 		_finish_run()
 		return
-	_wave_clear_announced = false   # NEW
+	_wave_clear_announced = false
 	var wave := all_waves[current_wave_index]
 	var wave_num := current_wave_index + 1
 	print("[WaveManager] Wave %d starting (%d enemies)" % [wave_num, wave.enemies.size()])
@@ -91,14 +91,10 @@ func _spawn_wave(wave: WaveDefinition) -> void:
 func _on_enemy_died(enemy) -> void:
 	if enemy is Node3D:
 		last_death_position = enemy.global_position
-		#debug purposes
-		print("[WaveManager] Spawned %s at %s, parent=%s" % [enemy.name, enemy.global_position, enemy.get_parent().name])
 	_remove_enemy(enemy)
 
 
 func _on_enemy_tree_exited(enemy) -> void:
-	#debug purposes
-	print("[WaveManager] tree_exited fired for: %s" % (enemy.name if is_instance_valid(enemy) else "<freed>"))
 	_remove_enemy(enemy)
 
 

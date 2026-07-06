@@ -1,18 +1,13 @@
 # Plays one-shot SFX. Autoloaded as "SoundManager".
 # Drop wav/ogg files into res://audio/sfx/ with names matching the keys below.
-# Missing files are silently skipped — game stays playable even without audio.
-#
-# Usage from anywhere:
-#   SoundManager.play("sword_swing")
-#   SoundManager.play("enemy_hurt", -3.0)   # volume offset in dB
+
+#   SoundManager.play("x")
+#   SoundManager.play("x", -3.0)   # volume offset in dB
 extends Node
 
 const SFX_DIR := "res://audio/sfx/"
 const DEFAULT_VOLUME_DB := -20.0
 
-# Map of sound key -> list of player pool. We pool a few players per key
-# so rapid-fire sounds (multiple sword swings, simultaneous enemy hits)
-# don't cut each other off.
 const POOL_SIZE := 4
 
 var _streams: Dictionary = {}    # key -> AudioStream

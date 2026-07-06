@@ -1,5 +1,5 @@
-# Central state singleton. Combat reads from here; boons write here.
-# Registered as autoload "PlayerStats" in Project Settings → Globals.
+#combat cita podake odavde; boons pisu ovdje
+#autoload PlayerStats u Globals u Project Settings
 extends Node
 
 signal stats_changed
