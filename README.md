@@ -38,9 +38,9 @@ Igrač upravlja vikingom koji se bori kroz osam sve težih valova goblina. Nakon
 
 Projekt počiva na tri principa:
 
-- **Sadržaj su podaci, a ne kod** — boonovi i valovi su Godot Resource datoteke (`.tres`) koje se uređuju kroz Inspector. Novi boon ili val dodaje se bez pisanja koda.
-- **Globalno stanje u autoload singletonima** — `PlayerStats`, `BoonManager`, `WaveManager` i `SoundManager` preživljavaju promjene scena i dostupni su iz svih skripti.
-- **Komunikacija signalima** — sustavi ne provjeravaju stanje drugih svaki frame, nego reagiraju na događaje (npr. neprijatelj emitira `died`, WaveManager broji preostale žive).
+- **Sadržaj su podaci, a ne kod** - boonovi i valovi su Godot Resource datoteke (`.tres`) koje se uređuju kroz Inspector. Novi boon ili val dodaje se bez pisanja koda.
+- **Globalno stanje u autoload singletonima** - `PlayerStats`, `BoonManager`, `WaveManager` i `SoundManager` preživljavaju promjene scena i dostupni su iz svih skripti.
+- **Komunikacija signalima** - sustavi ne provjeravaju stanje drugih svaki frame, nego reagiraju na događaje (npr. neprijatelj emitira `died`, WaveManager broji preostale žive).
 
 ## Struktura projekta
 
@@ -77,8 +77,8 @@ sword-swinger/
 
 Projekt su izradili studenti MATHOS-a:
 
-- **Marin Pontoni** — kretanje i animacije lika, dizajn mape, neprijatelj s navigacijom, sustav borbe
-- **Tibor Milković** — sustav boonova, sustav valova, boss, HUD i trake zdravlja, zvučni sustav
+- **Marin Pontoni** - kretanje i animacije lika, dizajn mape, neprijatelj s navigacijom, sustav borbe
+- **Tibor Milković** - sustav boonova, sustav valova, boss, HUD i trake zdravlja, zvučni sustav
 
 ## Zasluge
 
